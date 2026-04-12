@@ -5,21 +5,26 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true, // keep this for auth/cookies if needed
 });
 
+// ✅ Add token dynamically before every request
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
+
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+
   return config;
 });
 
-// Response interceptor
+// ✅ Handle errors nicely
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    const message = error.response?.data?.message || 'Something went wrong';
+    const message =
+      error.response?.data?.message || 'Something went wrong';
     return Promise.reject(new Error(message));
   }
 );
