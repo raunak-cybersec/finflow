@@ -24,18 +24,21 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const { data } = await api.post('/auth/login', { email, password });
+    localStorage.setItem('token', data.token);
     setUser(data.user);
     return data;
   };
 
   const signup = async (name, email, password) => {
     const { data } = await api.post('/auth/signup', { name, email, password });
+    localStorage.setItem('token', data.token);
     setUser(data.user);
     return data;
   };
 
   const logout = async () => {
     await api.post('/auth/logout');
+    localStorage.removeItem('token');
     setUser(null);
   };
 

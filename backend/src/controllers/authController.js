@@ -52,6 +52,7 @@ exports.signup = async (req, res, next) => {
 
     res.status(201).json({
       message: 'Account created successfully!',
+      token,
       user: { _id: user._id, name: user.name, email: user.email },
     });
   } catch (error) {
@@ -83,6 +84,7 @@ exports.login = async (req, res, next) => {
 
     res.json({
       message: 'Logged in successfully!',
+      token,
       user: { _id: user._id, name: user.name, email: user.email },
     });
   } catch (error) {
