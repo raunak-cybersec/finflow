@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://finflow-backend-qt03.onrender.com',
+  baseURL: 'https://finflow-backend-qt03.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
