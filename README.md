@@ -16,6 +16,9 @@ A **production-quality**, dark-themed personal finance web app with JWT authenti
 
 </div>
 
+🔗 Live Demo
+https://finflow-thzg.onrender.com
+
 ---
 
 ## ✨ Features
